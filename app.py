@@ -4,7 +4,7 @@ import os
 import base64
 import io
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def index():

@@ -5,71 +5,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seçim Afişi Oluşturucu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
-
-    <style>
-        #generated_afis {
-            display: none;
-        }
-
-        #share_buttons {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
-    <h1>Seçim Afişi Oluşturucu</h1>
-    <form id="posterForm" action="/generate" method="POST" enctype="multipart/form-data">
-        <label for="photo">Fotoğrafınızı Yükleyin:</label>
-        <input type="file" id="photo" name="photo" accept="image/*" required><br><br>
-        <label for="name">Adınız Soyadınız:</label>
-        <input type="text" id="name" name="name" maxlength="18" required><br><br>
-        <label for="slogan">Sloganınız:</label>
-        <input type="text" id="slogan" name="slogan" maxlength="30" required><br><br>
-        <label for="placeType">Afiş Tipi:</label>
-        <select id="placeType" name="placeType">
-            <option value="muhtar">Muhtarlık</option>
-            <option value="diger">Belediye - DİĞER</option>
-            <option value="akp">Belediye - AKP</option>
-            <option value="chp">Belediye - CHP</option>
-            <option value="mhp">Belediye - MHP</option>
-        </select><br><br>
-        <label for="placeName">Belediye/Mahalle İsmi:</label>
-        <input type="text" id="placeName" name="placeName" maxlength="17" required><br><br>
-        <input type="button" onclick="createAndShow()" value="Afiş Oluştur">
-    </form>
+    <div class="container">
+        <div class="card">
+            <div class="card-image">
+                <h2 class="card-heading">
+                    Seçim Afişi <br>Oluşturucu
+                    <small>github.com/osman-koc</small>
+                </h2>
+            </div>
+            <form class="card-form" id="posterForm" enctype="multipart/form-data">
+                <div class="input">
+                    <input type="file" class="input-field" name="photo" accept="image/*" required />
+                    <br><br>
+                    <label class="input-label" for="photo">Fotoğrafınızı Yükleyin</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="input-field" value="Dündar Dinç" id="name" name="name" maxlength="18"
+                        required />
+                    <label class="input-label" for="name">Adınız Soyadınız</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="input-field" value="O hep kol gibi dimdik!" id="slogan" name="slogan"
+                        maxlength="30" required />
+                    <label class="input-label" for="slogan">Slogan</label>
+                </div>
+                <div class="input">
+                    <select class="input-field" id="placeType" name="placeType">
+                        <option value="muhtar">Muhtarlık</option>
+                        <option value="diger">Belediye - DİĞER</option>
+                        <option value="akp">Belediye - AKP</option>
+                        <option value="chp">Belediye - CHP</option>
+                        <option value="mhp">Belediye - MHP</option>
+                    </select>
+                    <label class="input-label" for="placeType">Afiş Tipi</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="input-field" value="Ölümlü Dünya" id="placeName" name="placeName"
+                        maxlength="17" required />
+                    <label class="input-label" for="placeName">Belediye/Mahalle İsmi</label>
+                </div>
+                <div class="action">
+                    <button type="button" class="action-button" onclick="createAndShow()">Oluştur</button>
+                </div>
+            </form>
+        </div>
 
-    <br />
-    <!-- AddToAny BEGIN -->
-    <div id="share_buttons">
-        <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-            data-a2a-url="https://osman-koc.github.io/secim-afis-olusturucu/" data-a2a-title="Seçim Afişi Oluşturucu">
-            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-            <a class="a2a_button_x"></a>
-            <a class="a2a_button_whatsapp"></a>
-            <a class="a2a_button_telegram"></a>
-            <a class="a2a_button_facebook"></a>
+        <br />
+
+        <div class="generate-card" hidden>
+            <div id="generated_afis">
+            </div>
+            <div id="download_button">
+                <button class="action-button" type="button" onclick="downloadGeneratedImage()">Görseli İndir</button>
+            </div>
+            <br />
+
+            <!-- AddToAny BEGIN -->
+            <div id="share_buttons">
+                Paylaş: 
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
+                    data-a2a-url="https://osman-koc.github.io/secim-afis-olusturucu/"
+                    data-a2a-title="Seçim Afişi Oluşturucu">
+                    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                    <a class="a2a_button_x"></a>
+                    <a class="a2a_button_whatsapp"></a>
+                    <a class="a2a_button_telegram"></a>
+                    <a class="a2a_button_facebook"></a>
+                </div>
+            </div>
+            <script>
+                var a2a_config = a2a_config || {};
+                a2a_config.locale = "tr";
+                a2a_config.overlays = a2a_config.overlays || [];
+                a2a_config.overlays.push({});
+            </script>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+            <!-- AddToAny END -->
+        </div>
+
+        <br />
+
+        <div class="card-footer">
+            <div class="card-info">
+                <p>Bu web sayfası eğlence amaçlı oluşturulmuştur. Herhangi siyasi bir amaca hizmet etmemektedir.
+                    Oluşturulan görseldeki yazı ve fotoğraf denetlenmeden afiş üzerine yerleştirilmektedir. Bu konuda
+                    herhangi bir mesuliyet kabul edilmemektedir. Bilgileriniz ve fotoğrafınız hiçbir şekilde
+                    işlenmemektedir. </p>
+            </div>
+            <div class="card-info">
+                <a href="https://github.com/osman-koc/">GitHub</a>
+                <a href="https://osmkoc.com">Osman KOÇ</a>
+            </div>
         </div>
     </div>
-    <script>
-        var a2a_config = a2a_config || {};
-        a2a_config.locale = "tr";
-        a2a_config.overlays = a2a_config.overlays || [];
-        a2a_config.overlays.push({});
-    </script>
-    <script async src="https://static.addtoany.com/menu/page.js"></script>
-    <!-- AddToAny END -->
 
-    <br />
-    <div id="generated_afis">
-    </div>
 
     <script>
         function createAndShow() {
             document.getElementById('generated_afis').innerHTML = '';
-            
+
             var fordIsValid = $('#posterForm').valid();
             if (!fordIsValid) {
                 showError();
@@ -114,6 +154,7 @@
 
         function showGeneratedImage(showShareIcons) {
             document.getElementById('generated_afis').style.display = 'block';
+            document.getElementById('download_button').style.display = 'block';
             if (showShareIcons) {
                 document.getElementById('share_buttons').style.display = 'block';
             }
@@ -137,6 +178,14 @@
             var script = document.createElement('script');
             script.src = 'https://static.addtoany.com/menu/page.js';
             document.body.appendChild(script);
+        }
+
+        function downloadGeneratedImage() {
+            var generatedImage = document.querySelector('#generated_afis img');
+            var a = document.createElement('a');
+            a.href = generatedImage.src;
+            a.download = 'generated_afis.png';
+            a.click();
         }
     </script>
 </body>
