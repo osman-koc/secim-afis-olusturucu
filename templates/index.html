@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seçim Afişi Oluşturucu</title>
-    <script async src="https://static.addtoany.com/menu/page.js"></script>
     <style>
         #generated_afis {
             display: none;
@@ -26,38 +25,69 @@
         <input type="text" id="name" name="name" required><br><br>
         <label for="slogan">Sloganınız:</label>
         <input type="text" id="slogan" name="slogan" required><br><br>
+        <label for="type">Afiş Tipi:</label>
+        <select id="type" name="type">
+            <option value="muhtar">Muhtarlık</option>
+            <option value="diger">Belediye - DİĞER</option>
+            <option value="akp">Belediye - AKP</option>
+            <option value="chp">Belediye - CHP</option>
+            <option value="mhp">Belediye - MHP</option>
+        </select><br><br>
+        <label for="belediye">Belediye/Mahalle İsmi:</label>
+        <input type="text" id="belediye" name="belediye"><br><br>
         <input type="button" onclick="createAndShow()" value="Afiş Oluştur">
     </form>
+
     <br />
     <div id="generated_afis">
     </div>
     <br />
-    <div id="share_buttons" class="a2a_kit a2a_kit_size_32 a2a_default_style">
-        <a class="a2a_dd" href="https://www.addtoany.com/share">Paylaş</a>
-        <a class="a2a_button_facebook"></a>
-        <a class="a2a_button_whatsapp"></a>
-        <a class="a2a_button_instagram"></a>
-        <a class="a2a_button_twitter"></a>
+    <!-- AddToAny BEGIN -->
+    <div id="share_buttons">
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
+            data-a2a-url="https://osman-koc.github.io/secim-afis-olusturucu/" data-a2a-title="Seçim Afişi Oluşturucu">
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_x"></a>
+            <a class="a2a_button_whatsapp"></a>
+            <a class="a2a_button_telegram"></a>
+            <a class="a2a_button_facebook"></a>
+        </div>
     </div>
+    <script>
+        var a2a_config = a2a_config || {};
+        a2a_config.locale = "tr";
+        a2a_config.overlays = a2a_config.overlays || [];
+        a2a_config.overlays.push({});
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
 
     <script>
         function createAndShow() {
             document.getElementById('generated_afis').innerHTML = '';
-            
+
             fetch('/generate', {
                 method: 'POST',
                 body: new FormData(document.querySelector('form')),
             }).then(response => {
                 if (response.ok) {
-                    return response.blob();
+                    return response.json();
                 }
                 throw new Error('Network response was not ok.');
-            }).then(blob => {
-                var url = URL.createObjectURL(blob);
+            }).then(result => {
+                var base64ImageUrl = 'data:image/png;base64,' + result.data;
+
+                // Add image to div
                 var img = document.createElement('img');
-                img.src = url;
+                img.src = base64ImageUrl;
                 document.getElementById('generated_afis').appendChild(img);
+
+                // Share image settings
+                setShareSettings(base64ImageUrl);
+
                 showGeneratedImage();
+
+                document.getElementById('generated_afis').scrollIntoView({ behavior: 'smooth' });
             }).catch(error => {
                 console.error('There has been a problem with your fetch operation:', error);
             });
@@ -66,6 +96,26 @@
         function showGeneratedImage() {
             document.getElementById('generated_afis').style.display = 'block';
             document.getElementById('share_buttons').style.display = 'block';
+        }
+
+        function setShareSettings(mediaUrl) {
+            a2a_config = a2a_config || {};
+            a2a_config.locale = "tr";
+            a2a_config.data_track_clickback = false;
+            a2a_config.linkurl = window.location.href;
+            a2a_config.onclick = function (link, e) {
+                link.url = window.location.href;
+                link.media = mediaUrl;
+            };
+            a2a_config.overlays = a2a_config.overlays || [];
+            a2a_config.overlays.push({
+                useImage: true,
+                services: [ 'x', 'whatsapp', 'telegran', 'facebook' ]
+            });
+            // Reload AddToAny script
+            var script = document.createElement('script');
+            script.src = 'https://static.addtoany.com/menu/page.js';
+            document.body.appendChild(script);
         }
     </script>
 </body>
