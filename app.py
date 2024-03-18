@@ -15,7 +15,7 @@ def generate():
     if request.method == 'POST':
         font_amiko_bold = 'assets/fonts/Amiko-Bold.ttf'
         font_amiko_regular = 'assets/fonts/Amiko-Regular.ttf'
-        font_amiko_semibold = 'assets/fonts/Amiko-SemiBold.ttf'
+        # font_amiko_semibold = 'assets/fonts/Amiko-SemiBold.ttf'
 
         photo = request.files['photo']
         name = request.form['name']
