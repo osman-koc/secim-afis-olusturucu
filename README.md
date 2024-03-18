@@ -4,7 +4,7 @@ Bu uygulama, kullanıcıların seçim afişleri oluşturmasını sağlayan basit
 
 ## Deneyin
 
-<img src="static/img/banner.jpg"></img>
+<img src="static/img/banner.jpg" width="600px"></img>
 
 Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyebilirsiniz.
 
