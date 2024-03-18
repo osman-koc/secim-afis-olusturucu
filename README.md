@@ -10,8 +10,8 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
 
 ## Ekran Görüntüleri
 
-<img src="examples/ex_01.png" width="250px"></img> &nbsp; <img src="examples/ex_02.png" width="250px"></img>
-<img src="examples/ex_03.png" width="150px"></img>&nbsp; <img src="examples/ex_04.png" width="150px"></img>&nbsp; <img src="examples/ex_05.png" width="150px"></img>
+<img src="examples/ex_01.png" width="300px"></img> &nbsp; <img src="examples/ex_02.png" width="300px"></img><br>
+<img src="examples/ex_03.png" width="200px"></img>&nbsp; <img src="examples/ex_04.png" width="200px"></img>&nbsp; <img src="examples/ex_05.png" width="200px"></img>
 
 ## Nasıl Kullanılır
 
