@@ -19,7 +19,7 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
    - Fotoğraf yükleyin
    - Adınızı ve soyadınızı girin
    - Bir slogan seçin
-   - Afiş tipini ve belediye/mahalle ismini seçin
+   - Afiş tipini ve belediye/mahalle ismini girin
 2. "Oluştur" butonuna tıklayın.
 3. Oluşturulan afişi görüntüleyin, indirin veya paylaşın.
 
