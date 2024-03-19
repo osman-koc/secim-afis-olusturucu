@@ -22,6 +22,9 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
    - Afiş tipini ve belediye/mahalle ismini girin
 2. "Oluştur" butonuna tıklayın.
 3. Oluşturulan afişi görüntüleyin, indirin veya paylaşın.
+4. Örnek form:
+<img src="examples/form-screenshot.jpg" width="350px"></img>
+
 
 ## Gereksinimler
 
