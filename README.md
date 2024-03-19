@@ -13,7 +13,7 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
 <img src="examples/ex_01.png" width="300px"></img> &nbsp; <img src="examples/ex_02.png" width="300px"></img><br>
 <img src="examples/ex_03.png" width="200px"></img>&nbsp; <img src="examples/ex_04.png" width="200px"></img>&nbsp; <img src="examples/ex_05.png" width="200px"></img>
 
-## Nasıl Kullanılır
+## Nasıl Kullanılır?
 
 1. Ana sayfada gerekli bilgileri girin:
    - Fotoğraf yükleyin
