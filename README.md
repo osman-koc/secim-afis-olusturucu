@@ -23,7 +23,8 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
 2. "Oluştur" butonuna tıklayın.
 3. Oluşturulan afişi görüntüleyin, indirin veya paylaşın.
 4. Örnek form:
-<img src="examples/form-screenshot.jpg" width="350px"></img>
+
+<img src="examples/form-screenshot.jpg" width="250px"></img>
 
 
 ## Gereksinimler
