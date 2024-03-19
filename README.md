@@ -61,6 +61,12 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
    ```
 7. Tarayıcınızda http://127.0.0.1:5000/ adresine gidin.
 
+### Docker ile çalıştırma
 
-
+1. Aşağıdaki komutlarla image ve container oluşturun:
+   ```bash
+   docker build -t secim-afisi-olusturucu .
+   docker run -p 5000:5000 secim-afisi-olusturucu
+   ```
+2. Tarayıcınızda http://127.0.0.1:5000/ adresine gidin.
 
