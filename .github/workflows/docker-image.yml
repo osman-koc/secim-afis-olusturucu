@@ -21,7 +21,7 @@ jobs:
       - name: Build the Docker image
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-        run: docker build . --file Dockerfile --tag $DOCKER_USERNAME/secim-afisi-olusturucu:$(date +%s)
+        run: docker build . --file Dockerfile --tag $DOCKER_USERNAME/secim-afisi-olusturucu
 
       - name: Docker Push
         env:
