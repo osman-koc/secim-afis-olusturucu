@@ -12,7 +12,12 @@ def index():
 
 @app.route('/generate', methods=['POST'])
 def generate():
-    if request.method == 'POST':
+    if request.method != 'POST':
+        return jsonify({'error': 'Bad Request'}), 400
+    else:
+        if request.form['isTest'] is not None:
+            return jsonify({'status': 'Test success.'}), 200
+
         font_amiko_bold = 'assets/fonts/Amiko-Bold.ttf'
         font_amiko_regular = 'assets/fonts/Amiko-Regular.ttf'
         # font_amiko_semibold = 'assets/fonts/Amiko-SemiBold.ttf'
