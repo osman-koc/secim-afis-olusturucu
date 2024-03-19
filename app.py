@@ -15,7 +15,8 @@ def generate():
     if request.method != 'POST':
         return jsonify({'error': 'Bad Request'}), 400
     else:
-        if request.form['isTest'] is not None:
+        is_test = request.form.get('isTest')
+        if is_test is not None:
             return jsonify({'status': 'Test success.'}), 200
 
         font_amiko_bold = 'assets/fonts/Amiko-Bold.ttf'
