@@ -19,7 +19,9 @@ jobs:
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag secim-afisi-olusturucu:$(date +%s)
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+        run: docker build . --file Dockerfile --tag $DOCKER_USERNAME/secim-afisi-olusturucu:$(date +%s)
 
       - name: Docker Push
         env:
