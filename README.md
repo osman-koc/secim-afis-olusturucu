@@ -8,11 +8,6 @@ Bu uygulama, kullanıcıların seçim afişleri oluşturmasını sağlayan basit
 
 Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyebilirsiniz.
 
-## Ekran Görüntüleri
-
-<img src="examples/ex_01.png" width="300px"></img> &nbsp; <img src="examples/ex_02.png" width="300px"></img><br>
-<img src="examples/ex_03.png" width="200px"></img>&nbsp; <img src="examples/ex_04.png" width="200px"></img>&nbsp; <img src="examples/ex_05.png" width="200px"></img>
-
 ## Nasıl Kullanılır?
 
 1. Ana sayfada gerekli bilgileri girin:
@@ -25,6 +20,12 @@ Uygulamayı https://osman-koc.github.io/secim-afisi-olusturucu linkinden deneyeb
 4. Örnek form:
 
 <img src="examples/form-screenshot.jpg" width="250px"></img>
+
+
+## Ekran Görüntüleri
+
+<img src="examples/ex_01.png" width="300px"></img> &nbsp; <img src="examples/ex_02.png" width="300px"></img><br>
+<img src="examples/ex_03.png" width="200px"></img>&nbsp; <img src="examples/ex_04.png" width="200px"></img>&nbsp; <img src="examples/ex_05.png" width="200px"></img>
 
 
 ## Gereksinimler
