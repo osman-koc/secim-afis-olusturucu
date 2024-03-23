@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    image: secim-afisi-olusturucu:latest
+    ports:
+      - "5123:5123" 
+    volumes:
+      - /path/to/ssl/cert:/etc/ssl/certs/ssl-cert-snakeoil.pem 
+      - /path/to/ssl/key:/etc/ssl/private/ssl-cert-snakeoil.key
+    environment:
+      - FLASK_APP=app.py
+    command: ["flask", "run", "--host=0.0.0.0", "--port=5123"]

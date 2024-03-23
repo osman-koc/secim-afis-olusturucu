@@ -19,12 +19,9 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - name: Build the Docker image
+      - name: Build and push Docker image with Docker Compose
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        run: docker build . --file Dockerfile --tag $DOCKER_USERNAME/secim-afisi-olusturucu
-
-      - name: Docker Push
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        run: docker push $DOCKER_USERNAME/secim-afisi-olusturucu
+        run: |
+          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose.yml push
